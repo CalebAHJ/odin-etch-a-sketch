@@ -5,8 +5,6 @@ function gridify(splitCount) {
             div.classList.add('box');
             div.style.cssText = `grid-column: ${col}`;
             div.style.cssText = `grid-row: ${row}`;
-            div.textContent = col.toString() + ", " + row.toString();
-            div.style.cssText = 'color: white';
             document.querySelector('.container').appendChild(div);
         }
     }
@@ -20,8 +18,8 @@ function resize() {
     if (splitCount > 100) splitCount = 100;
 
     container = document.querySelector('div.container');
-    container.style.cssText = `grid-template-columns : repeat(${splitCount}, ${90/splitCount}vh)`;
-    container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${100/splitCount}vw)`;
+    container.style.cssText = `grid-template-columns : repeat(${splitCount}, ${800/splitCount}px)`;
+    container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${800/splitCount}px)`;
 
     boxes = document.querySelectorAll('div.box');
     boxes.forEach((box) => container.removeChild(box));
@@ -30,11 +28,10 @@ function resize() {
 }
 
 function clear() {
-    let count = 0;
     boxes = document.querySelectorAll('div.box');
     boxes.forEach((box) => box.classList.remove('hoverEffect'));
 }
 
 gridify(16);
 document.querySelector('button').addEventListener('click', resize);
-document.querySelector('button#clear').addEventListener('click', clear)
+document.querySelector('button#clear').addEventListener('click', clear);
