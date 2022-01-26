@@ -3,18 +3,17 @@
     grid-auto-flow: column;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    gap: 8px;
     width: 100vw;
-    height: 100vw;
+    height: 90vh;
 }
 
 .hoverEffect {
     background-color: black;
-    color: black;
 }
 
 .buttonBox {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    gap: 10px;
 }

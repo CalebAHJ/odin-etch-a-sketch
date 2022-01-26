@@ -5,14 +5,14 @@ function gridify(splitCount) {
             div.classList.add('box');
             div.style.cssText = `grid-column: ${col}`;
             div.style.cssText = `grid-row: ${row}`;
-            div.textContent = col.toString() + row.toString();
+            div.textContent = col.toString() + ", " + row.toString();
             div.style.cssText = 'color: white';
             document.querySelector('.container').appendChild(div);
         }
     }
     boxes = document.querySelectorAll('div.box');
     boxes.forEach((box) => box.addEventListener('mouseover', 
-        () => box.classList.toggle('hoverEffect')));
+        () => box.classList.add('hoverEffect')));
 }
 
 function resize() {
@@ -20,8 +20,8 @@ function resize() {
     if (splitCount > 100) splitCount = 100;
 
     container = document.querySelector('div.container');
-    container.style.cssText = `grid-template-columns : repeat(${splitCount}, 1fr)`;
-    container.style.cssText = `grid-template-rows : repeat(${splitCount}, 1fr)`;
+    container.style.cssText = `grid-template-columns : repeat(${splitCount}, ${90/splitCount}vh)`;
+    container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${100/splitCount}vw)`;
 
     boxes = document.querySelectorAll('div.box');
     boxes.forEach((box) => container.removeChild(box));
@@ -29,5 +29,12 @@ function resize() {
     gridify(splitCount);
 }
 
+function clear() {
+    let count = 0;
+    boxes = document.querySelectorAll('div.box');
+    boxes.forEach((box) => box.classList.remove('hoverEffect'));
+}
+
 gridify(16);
 document.querySelector('button').addEventListener('click', resize);
+document.querySelector('button#clear').addEventListener('click', clear)
