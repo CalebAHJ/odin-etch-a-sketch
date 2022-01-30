@@ -22,16 +22,38 @@ function resize() {
     container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${800/splitCount}px)`;
 
     boxes = document.querySelectorAll('div.box');
-    boxes.forEach((box) => container.removeChild(box));
+    boxes.forEach(box => container.removeChild(box));
 
     gridify(splitCount);
 }
 
 function clear() {
-    boxes = document.querySelectorAll('div.box');
-    boxes.forEach((box) => box.classList.remove('hoverEffect'));
+    const boxes = document.querySelectorAll('div.box');
+    boxes.forEach(box => box.classList.remove('hoverEffect'));
 }
+
+function erase() {
+    document.querySelector('button#erase').classList.add('inUse');
+
+    const boxes = document.querySelectorAll('div.box');
+    boxes.forEach(box => box.addEventListener('mouseover', () => 
+        box.classList.remove('hoverEffect')));
+}
+
+// function shadeChange() {
+//     const boxes = document.querySelectorAll('div.box');
+//     boxes.forEach(box => box.addEventListener('mouseover', () => {
+//         box.classList.remove('hoverEffect');
+
+//         const boxColor = window.getComputedStyle(box).backgroundColor;
+//         const newR = +boxColor.slice(4,5) + 17;
+//         const newG = +boxColor.slice(7,8) + 17;
+//         const newB = +boxColor.slice(10,11) + 17;
+//         box.style.backgroundColor = `rgb(${newR}, ${newB}, ${newG})`;
+//     }));
+// }
 
 gridify(16);
 document.querySelector('button').addEventListener('click', resize);
 document.querySelector('button#clear').addEventListener('click', clear);
+document.querySelector('button#erase').addEventListener('click', erase);
