@@ -8,9 +8,7 @@ function gridify(splitCount) {
             document.querySelector('.container').appendChild(div);
         }
     }
-    boxes = document.querySelectorAll('div.box');
-    boxes.forEach((box) => box.addEventListener('mouseover', 
-        () => box.classList.add('hoverEffect')));
+    draw();
 }
 
 function resize() {
@@ -34,10 +32,20 @@ function clear() {
 
 function erase() {
     document.querySelector('button#erase').classList.add('inUse');
+    document.querySelector('button#draw').classList.remove('inUse');
 
     const boxes = document.querySelectorAll('div.box');
     boxes.forEach(box => box.addEventListener('mouseover', () => 
         box.classList.remove('hoverEffect')));
+}
+
+function draw() {
+    document.querySelector('button#erase').classList.remove('inUse');
+    document.querySelector('button#draw').classList.add('inUse');
+
+    const boxes = document.querySelectorAll('div.box');
+    boxes.forEach(box => box.addEventListener('mouseover', () => 
+        box.classList.add('hoverEffect')));
 }
 
 // function shadeChange() {
@@ -57,3 +65,4 @@ gridify(16);
 document.querySelector('button').addEventListener('click', resize);
 document.querySelector('button#clear').addEventListener('click', clear);
 document.querySelector('button#erase').addEventListener('click', erase);
+document.querySelector('button#draw').addEventListener('click', draw);
