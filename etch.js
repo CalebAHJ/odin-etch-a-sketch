@@ -36,7 +36,7 @@ function erase() {
 
     const boxes = document.querySelectorAll('div.box');
     boxes.forEach(box => box.addEventListener('mouseover', () => 
-        box.classList.remove('hoverEffect')));
+        box.classList.remove('hoverEffect'), {once : true}));
 }
 
 function draw() {
@@ -45,7 +45,7 @@ function draw() {
 
     const boxes = document.querySelectorAll('div.box');
     boxes.forEach(box => box.addEventListener('mouseover', () => 
-        box.classList.add('hoverEffect')));
+        box.classList.add('hoverEffect'), {once : true}));
 }
 
 // function shadeChange() {
