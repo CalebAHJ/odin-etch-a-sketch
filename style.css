@@ -12,7 +12,7 @@ body {
     grid-template-rows: repeat(16, 1fr);
     width: 800px;
     height: 800px;
-    border: 2px solid black;
+    border: 4px solid black;
 }
 
 .hoverEffect {
@@ -28,6 +28,16 @@ body {
     justify-content: center;
     margin-bottom: 10px;
     gap: 10px;
+}
+
+button {
+    padding: 16px;
+    color: white;
+    font-weight: bolder;
+    font-family: sans-serif;
+    background-color: darkblue;
+    border-radius: 6px;
+    border: solid 2px grey;
 }
 
 .inUse {
