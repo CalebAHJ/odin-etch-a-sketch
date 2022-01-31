@@ -3,8 +3,9 @@ function gridify(splitCount) {
         for (let row = 1; row <= splitCount; row++) {
             const div = document.createElement('div');
             div.classList.add('box');
-            div.style.cssText = `grid-column: ${col}`;
-            div.style.cssText = `grid-row: ${row}`;
+            const SIDE_LENGTH = 800 / splitCount;
+            div.style.height = `${SIDE_LENGTH}px`;
+            div.style.width = `${SIDE_LENGTH}px`;
             document.querySelector('.container').appendChild(div);
         }
     }
