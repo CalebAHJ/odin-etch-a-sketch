@@ -16,9 +16,11 @@ function resize() {
     if (splitCount > 100) splitCount = 100;
     if (splitCount < 1) splitCount = 1;
 
+    const SIDE_LENGTH = 800 / splitCount;
+
     container = document.querySelector('div.container');
-    container.style.cssText = `grid-template-columns : repeat(${splitCount}, ${800/splitCount}px)`;
-    container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${800/splitCount}px)`;
+    container.style.cssText = `grid-template-columns : repeat(${splitCount}, ${SIDE_LENGTH}px)`;
+    container.style.cssText = `grid-template-rows : repeat(${splitCount}, ${SIDE_LENGTH}px)`;
 
     boxes = document.querySelectorAll('div.box');
     boxes.forEach(box => container.removeChild(box));
