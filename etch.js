@@ -12,7 +12,7 @@ function gridify(splitCount) {
 }
 
 function resize() {
-    splitCount = prompt("How many boxes would you like each side to have (Max:100)");
+    const splitCount = prompt("How many boxes would you like each side to have (Max:100)");
     if (splitCount > 100) splitCount = 100;
     if (splitCount < 1) splitCount = 1;
 
