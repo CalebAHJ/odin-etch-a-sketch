@@ -39,7 +39,6 @@ function erase() {
     boxes.forEach(box => box.addEventListener('mouseover', () => {
         box.classList.remove('hoverEffect');
         box.classList.add('erased');
-        box.style.color = 'white';
         box.style.opacity = 0;
     }, {once : true}));
 }

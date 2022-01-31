@@ -19,6 +19,10 @@ body {
     background-color: black;
 }
 
+.erased {
+    background-color: white;
+}
+
 .buttonBox {
     display: flex;
     justify-content: center;
