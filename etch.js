@@ -27,7 +27,12 @@ function resize() {
 
 function clear() {
     const boxes = document.querySelectorAll('div.box');
-    boxes.forEach(box => box.classList.remove('hoverEffect'));
+    boxes.forEach(box => {
+        box.classList.remove('hoverEffect');
+        box.classList.remove('erased');
+        box.style.color = 'white';
+        box.style.opacity = 0;
+});
 }
 
 function erase() {
