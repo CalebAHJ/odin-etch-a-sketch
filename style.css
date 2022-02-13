@@ -43,3 +43,9 @@ button {
 .inUse {
     background-color: blue;
 }
+
+#title {
+    margin-top: .5rem;
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 4rem;
+}
